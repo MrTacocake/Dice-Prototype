@@ -51,7 +51,7 @@ public class Dice : MonoBehaviour {
 	// reference to the dice that have to be rolled
     private static ArrayList rollQueue = new ArrayList();
 	// reference to all dice, created by Dice.Roll
-	private static ArrayList allDice = new ArrayList();
+	public static ArrayList allDice = new ArrayList();// !!!Chanced to public!!!
 	// reference to the dice that are rolling
     private static ArrayList rollingDice = new ArrayList();
 
@@ -167,7 +167,7 @@ public class Dice : MonoBehaviour {
 				spawnPoint.y = spawnPoint.y - 1 + Random.value * 2;
                 spawnPoint.y = spawnPoint.y - 1 + Random.value * 2;
 				// create the die prefab/gameObject
-                GameObject die = prefab(dieType, spawnPoint, Vector3.zero, new Vector3(1.5f,1.5f,1.5f), mat);
+                GameObject die = prefab(dieType, spawnPoint, Vector3.zero, new Vector3(1f,1f,1f), mat);
 				// give it a random rotation
 				die.transform.Rotate(new Vector3(Random.value * 360, Random.value * 360, Random.value * 360));
 				// inactivate this gameObject because activating it will be handeled using the rollQueue and at the apropriate time
@@ -334,7 +334,7 @@ public class Dice : MonoBehaviour {
 /// <summary>
 /// Supporting rolling die class to keep die information
 /// </summary>
-class RollingDie
+public class RollingDie
 {
 
     public GameObject gameObject;		// associated gameObject
